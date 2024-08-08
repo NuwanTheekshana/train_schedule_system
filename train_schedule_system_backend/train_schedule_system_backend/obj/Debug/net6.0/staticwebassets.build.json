@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "16e1vCGsKV6kdl6w28UwNY6Bf5bo7ZykZCflVWY7x2M=",
+  "Source": "train_schedule_system_backend",
+  "BasePath": "_content/train_schedule_system_backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

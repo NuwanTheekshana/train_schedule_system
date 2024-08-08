@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\train_schedule_system_backend.props" />
+</Project>
