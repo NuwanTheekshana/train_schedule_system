@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import notFoundImage from '../img/login_img.jpg';
+import notFoundImage from '../img/trainlogin.png';
+import Swal from 'sweetalert2';
 
 function Login() {
   const [Email, setEmail] = useState('');
@@ -42,11 +43,21 @@ function Login() {
 
           navigate('/home');
         } else {
-          alert('Login failed. No token received.');
+          // alert('Login failed. No token received.');
+          Swal.fire({title: 'Warning', text: 'Login failed. No token received.', icon: 'error' }).then((result) => {
+            if (result.isConfirmed) {
+              window.scrollTo({top: 0,behavior: 'smooth'});
+            }
+          });
         }
       })
       .catch((error) => {
-        alert('Login failed. Please check your credentials.');
+        // alert('Login failed. Please check your credentials.');
+        Swal.fire({title: 'Warning', text: 'Login failed. Please check your credentials.', icon: 'error' }).then((result) => {
+          if (result.isConfirmed) {
+            window.scrollTo({top: 0,behavior: 'smooth'});
+          }
+        });
       });
   };
 

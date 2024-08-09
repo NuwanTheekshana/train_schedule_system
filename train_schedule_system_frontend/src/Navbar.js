@@ -60,7 +60,7 @@ function Navbar() {
                                 </a>
 
                                 <div className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownConsultant">
-                                    <Link to="/sellticket" className="dropdown-item">
+                                    <Link to="/findtrainschedule" className="dropdown-item">
                                         Find Train Schedule
                                     </Link>
                                     
@@ -80,7 +80,7 @@ function Navbar() {
                             <Link to="/addtrain" className="dropdown-item">
                             Add Train
                             </Link>
-                            <Link to="/viewsales" className="dropdown-item">
+                            <Link to="/addtrainschedule" className="dropdown-item">
                             Add Train Schedule
                             </Link>
                         </div>

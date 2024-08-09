@@ -38,9 +38,9 @@ namespace train_schedule_system_backend.Controllers
                         cmd.Parameters.AddWithValue("@TrainName", train.TrainName);
                         cmd.Parameters.AddWithValue("@Created_by", train.Created_by);
 
-                        int jobSeekerRowsAffected = cmd.ExecuteNonQuery();
+                        int trainRowsAffected = cmd.ExecuteNonQuery();
 
-                        if (jobSeekerRowsAffected > 0)
+                        if (trainRowsAffected > 0)
                         {
                             response.StatusCode = 200;
                             response.StatusMessage = "Train added successful";
@@ -174,6 +174,47 @@ namespace train_schedule_system_backend.Controllers
                     }
                 }
             }
+        }
+
+
+
+        [HttpGet]
+        [Route("TrainList")]
+        public IActionResult GetTrainLists()
+        {
+            string connectionString = _configuration.GetConnectionString("SqlConnection");
+            List<GetTrainList> trainslists = new List<GetTrainList>();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = "SELECT train_id, train_name FROM train_tbl WHERE status = 1";
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var trainlist = new GetTrainList
+                                {
+                                    TrainId = Convert.ToInt32(reader["train_id"]),
+                                    TrainName = Convert.ToString(reader["train_name"]),
+                                };
+                                trainslists.Add(trainlist);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error: " + ex.Message);
+            }
+
+            return Ok(trainslists);
         }
 
 

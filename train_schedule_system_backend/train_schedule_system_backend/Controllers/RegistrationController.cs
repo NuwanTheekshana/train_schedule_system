@@ -45,9 +45,9 @@ namespace train_schedule_system_backend.Controllers
                         cmd.Parameters.AddWithValue("@Password", encryptedPassword);
                         cmd.Parameters.AddWithValue("@Permission", registration.Permission);
 
-                        int jobSeekerRowsAffected = cmd.ExecuteNonQuery();
+                        int userRowsAffected = cmd.ExecuteNonQuery();
 
-                        if (jobSeekerRowsAffected > 0)
+                        if (userRowsAffected > 0)
                         {
                             response.StatusCode = 200;
                             response.StatusMessage = "Registration successful";

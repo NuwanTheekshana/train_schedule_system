@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import { Link, useNavigate } from 'react-router-dom';
-import homeimg from './img/ent_img.avif';
+import homeimg from './img/train.avif';
 
 function Home() {
 

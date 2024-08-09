@@ -18,4 +18,11 @@
         public string TrainName { get; set; }
 
     }
+    public class GetTrainList
+    {
+        public int TrainId { get; set; }
+        public string TrainName { get; set; }
+    }
+
+    
 }
